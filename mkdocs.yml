@@ -3,8 +3,9 @@ nav:
   - Index : index.md
   - Fundamentos : fundamentos.md
   - Ramas : ramas.md
-  - Pull Requests : pull_requests.md
-  
+  - Pull Requests : request.md
+  - Revision de Cambios : revision.md
+  - Fusion Merging : mergin.md  
 
  
 theme:
@@ -18,7 +19,7 @@ theme:
    - search  
 
   logo: assets/logo.png
-  favicon: assets/favicon.ico
+  favicon: assets/favicon.png
   features:
     - navigation.footer
     # - navigation.expand

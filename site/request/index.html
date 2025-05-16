@@ -1,0 +1,861 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ramas/">
+      
+      
+        <link rel="next" href="../revision/">
+      
+      
+      <link rel="icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Pull Requests - GitHub - Una guia concreta</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/styles.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#modulo-3-pull-requests-prs-el-corazon-de-la-colaboracion-y-revision" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="GitHub - Una guia concreta" class="md-header__button md-logo" aria-label="GitHub - Una guia concreta" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GitHub - Una guia concreta
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Pull Requests
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-purple"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="orange"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="GitHub - Una guia concreta" class="md-nav__button md-logo" aria-label="GitHub - Una guia concreta" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    GitHub - Una guia concreta
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fundamentos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fundamentos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ramas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ramas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Pull Requests
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pull Requests
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-que-es-un-pull-request-pr-o-merge-request-mr" class="md-nav__link">
+    <span class="md-ellipsis">
+      🗣️ 1. ¿Qué es un Pull Request (PR) o Merge Request (MR)?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-el-flujo-de-un-pull-request-pr" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 2. El Flujo de un Pull Request (PR)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-creando-un-pull-request-en-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✍️ 3. Creando un Pull Request en GitHub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-el-ciclo-de-vida-de-un-pr-discusion-y-actualizaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 4. El Ciclo de Vida de un PR: Discusión y Actualizaciones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practica-sugerida" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ Práctica Sugerida
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Revision de Cambios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mergin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fusion Merging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-que-es-un-pull-request-pr-o-merge-request-mr" class="md-nav__link">
+    <span class="md-ellipsis">
+      🗣️ 1. ¿Qué es un Pull Request (PR) o Merge Request (MR)?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-el-flujo-de-un-pull-request-pr" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 2. El Flujo de un Pull Request (PR)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-creando-un-pull-request-en-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✍️ 3. Creando un Pull Request en GitHub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-el-ciclo-de-vida-de-un-pr-discusion-y-actualizaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 4. El Ciclo de Vida de un PR: Discusión y Actualizaciones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practica-sugerida" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ Práctica Sugerida
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="modulo-3-pull-requests-prs-el-corazon-de-la-colaboracion-y-revision">Módulo 3: Pull Requests (PRs) – El Corazón de la Colaboración y Revisión</h1>
+<details class="info" open="open">
+<summary>🎯 Objetivo del Módulo</summary>
+<p>Entender y utilizar los Pull Requests (PRs) como el mecanismo central en GitHub para proponer, discutir, revisar e integrar cambios de una rama de funcionalidad (o corrección) a la rama principal (ej. <code>main</code>). Este es el pilar de la revisión de código en el proyecto "CollabApp".</p>
+</details>
+<hr />
+<h2 id="1-que-es-un-pull-request-pr-o-merge-request-mr">🗣️ 1. ¿Qué es un Pull Request (PR) o Merge Request (MR)?</h2>
+<p>Un <strong>Pull Request</strong> (término usado en GitHub y Bitbucket) o <strong>Merge Request</strong> (término usado en GitLab) es una solicitud formal para fusionar (merge) los cambios de una rama (la "rama fuente" o "head branch") en otra rama (la "rama base" o "target branch", usualmente <code>main</code> o <code>develop</code>).</p>
+<p>Pero es mucho más que solo una solicitud de fusión:</p>
+<ul>
+<li><strong>Plataforma de Discusión:</strong> Los PRs proporcionan un espacio para discutir los cambios propuestos. Los miembros del equipo pueden hacer preguntas, ofrecer sugerencias y debatir la implementación.</li>
+<li><strong>Revisión de Código (Code Review):</strong> Es el lugar donde se realiza la revisión formal del código. Los revisores pueden examinar los cambios línea por línea, dejar comentarios y solicitar modificaciones.</li>
+<li><strong>Integración Continua (CI):</strong> Muchos equipos integran herramientas de CI que ejecutan pruebas automatizadas en el código del PR antes de que se pueda fusionar.</li>
+<li><strong>Historial y Trazabilidad:</strong> Un PR cerrado (fusionado o no) deja un registro de la discusión y el proceso de decisión sobre un conjunto de cambios.</li>
+</ul>
+<blockquote>
+<p><strong>En CollabApp:</strong> Cuando Ana termina la funcionalidad <code>feature/crear-tarea</code>, no la fusiona directamente a <code>main</code>. En su lugar, abre un Pull Request para que Bruno y/o Carla revisen su trabajo.</p>
+</blockquote>
+<hr />
+<h2 id="2-el-flujo-de-un-pull-request-pr">🔄 2. El Flujo de un Pull Request (PR)</h2>
+<p>El ciclo de vida típico de un PR es el siguiente:</p>
+<ol>
+<li>
+<p><strong>Desarrollo en una Rama:</strong></p>
+<ul>
+<li>Un desarrollador (ej. Ana) crea una nueva rama (ej. <code>feature/nueva-funcionalidad</code>) a partir de la rama base (<code>main</code>).</li>
+<li>Ana trabaja en esta rama, haciendo commits con sus cambios.</li>
+<li>Ana empuja (push) su rama a GitHub: <code>git push -u origin feature/nueva-funcionalidad</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Apertura del Pull Request:</strong></p>
+<ul>
+<li>Ana va a la página del repositorio en GitHub.</li>
+<li>GitHub a menudo detecta automáticamente las ramas nuevas que se han empujado y ofrece crear un PR.</li>
+<li>Si no, Ana puede ir a la pestaña "Pull requests" y hacer clic en "New pull request".</li>
+<li>Selecciona la <strong>rama base</strong> (ej. <code>main</code>) y la <strong>rama a comparar/fuente</strong> (ej. <code>feature/nueva-funcionalidad</code>).</li>
+<li>Escribe un título claro y una descripción detallada para el PR.</li>
+<li>Asigna revisores (reviewers) y, si aplica, etiquetas (labels) o hitos (milestones).</li>
+<li>Hace clic en "Create pull request".</li>
+</ul>
+</li>
+<li>
+<p><strong>Discusión y Revisión de Código:</strong></p>
+<ul>
+<li>Los revisores asignados (ej. Bruno, Carla) reciben una notificación.</li>
+<li>Examinan los cambios en la pestaña "Files changed" del PR.</li>
+<li>Dejan comentarios, hacen preguntas, sugieren mejoras.</li>
+<li>El autor del PR (Ana) responde a los comentarios y puede hacer más commits en su rama <code>feature/nueva-funcionalidad</code> para abordar el feedback.<ul>
+<li><strong>Importante:</strong> Al empujar nuevos commits a la rama que ya tiene un PR abierto, el PR se actualiza automáticamente con esos nuevos cambios. No es necesario cerrar y abrir un nuevo PR.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Aprobación:</strong></p>
+<ul>
+<li>Una vez que los revisores están satisfechos con los cambios (y las pruebas automatizadas, si las hay, pasan), aprueban el PR.</li>
+</ul>
+</li>
+<li>
+<p><strong>Fusión (Merge):</strong></p>
+<ul>
+<li>Alguien con permisos (usualmente el autor del PR o un líder de equipo) fusiona el PR. Esto integra los cambios de <code>feature/nueva-funcionalidad</code> en <code>main</code>.</li>
+<li>GitHub ofrece diferentes estrategias de fusión (las veremos en el Módulo 5).</li>
+</ul>
+</li>
+<li>
+<p><strong>Cierre y Limpieza (Opcional pero Recomendado):</strong></p>
+<ul>
+<li>El PR se cierra automáticamente después de la fusión.</li>
+<li>La rama de funcionalidad (<code>feature/nueva-funcionalidad</code>) puede ser eliminada de GitHub (GitHub suele ofrecer un botón para esto) y también localmente.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="3-creando-un-pull-request-en-github">✍️ 3. Creando un Pull Request en GitHub</h2>
+<ul>
+<li>
+<p><em>Caso CollabApp:</em> Ana ha terminado su trabajo inicial en la rama <code>feature/crear-tarea</code> y la ha empujado a GitHub. Ahora quiere proponer estos cambios para <code>main</code>.</p>
+<ol>
+<li><strong>Ir a GitHub:</strong> Ana navega al repositorio <code>CollabApp</code> en GitHub.</li>
+<li><strong>Iniciar el PR:</strong><ul>
+<li>A menudo, GitHub mostrará una notificación amarilla: "<code>feature/crear-tarea</code> had recent pushes less than a minute ago" con un botón "Compare &amp; pull request". Ana hace clic ahí.</li>
+<li>Alternativamente, puede ir a la pestaña "Pull requests" y hacer clic en "New pull request".</li>
+</ul>
+</li>
+<li><strong>Seleccionar Ramas:</strong><ul>
+<li><strong><code>base:</code></strong> <code>main</code> (la rama a la que quiere fusionar)</li>
+<li><strong><code>compare:</code></strong> <code>feature/crear-tarea</code> (la rama que contiene sus cambios)
+GitHub mostrará una vista previa de los cambios y si hay conflictos (¡esperemos que no!).</li>
+</ul>
+</li>
+<li><strong>Completar los Detalles del PR:</strong><ul>
+<li><strong>Título:</strong> Un título conciso y descriptivo.<ul>
+<li><em>Ejemplo para Ana:</em> <code>feat: Implementar funcionalidad básica de creación de tareas</code></li>
+</ul>
+</li>
+<li><strong>Descripción (Cuerpo):</strong> Esta es la parte crucial. Debería explicar:<ul>
+<li><strong>¿Qué hace este PR?</strong> (Resumen de los cambios).</li>
+<li><strong>¿Por qué es necesario este cambio?</strong> (Contexto, problema que resuelve, issue que cierra).</li>
+<li><strong>¿Cómo se probaron los cambios?</strong> (Pasos para que los revisores puedan verificar).</li>
+<li><strong>(Opcional)</strong> Capturas de pantalla, GIFs de la nueva UI.</li>
+<li><strong>(Opcional)</strong> Si cierra un "Issue" de GitHub, puede escribir <code>Closes #ID_DEL_ISSUE</code> (ej. <code>Closes #12</code>). Esto vinculará el PR al issue y lo cerrará automáticamente cuando el PR se fusione.</li>
+<li><em>Ejemplo de descripción para Ana:</em>
+    <div class="language-markdown highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Este PR introduce la funcionalidad básica para que los usuarios puedan crear nuevas tareas en CollabApp.
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="gs">**Cambios Realizados:**</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">-</span><span class="w"> </span>Añadido <span class="sb">`task-form.html`</span> con la estructura del formulario.
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">-</span><span class="w"> </span>Creado <span class="sb">`task-form.js`</span> para manejar la entrada del usuario (sin lógica de guardado aún).
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">-</span><span class="w"> </span>Actualizado <span class="sb">`README.md`</span> para mencionar esta nueva característica.
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="gs">**Motivación:**</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>Este es el primer paso para permitir a los usuarios añadir contenido a la aplicación.
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>Relacionado con el Issue <span class="ni">#3</span> (Definir flujo de creación de tareas).
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="gs">**Cómo Probar:**</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="k">1.</span>  Navegar a <span class="sb">`task-form.html`</span> en el navegador.
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="k">2.</span>  Verificar que el formulario se muestra correctamente.
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="k">3.</span>  (No hay funcionalidad de guardado aún).
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="ni">@Bruno</span> <span class="ni">@Carla</span> ¡Por favor, revisen!
+</span></code></pre></div></li>
+</ul>
+</li>
+<li><strong>Reviewers (Revisores):</strong> En el panel derecho, Ana selecciona a Bruno y Carla como revisores.</li>
+<li><strong>Assignees (Asignados):</strong> Ana puede asignarse a sí misma como responsable del PR.</li>
+<li><strong>Labels (Etiquetas):</strong> Puede añadir etiquetas como <code>enhancement</code>, <code>frontend</code>, <code>needs-review</code>.</li>
+<li><strong>Projects/Milestones:</strong> Si se usan, se pueden vincular aquí.</li>
+</ul>
+</li>
+<li><strong>Crear el PR:</strong> Ana hace clic en "Create pull request".</li>
+</ol>
+<p>El PR ahora está abierto, y Bruno y Carla recibirán notificaciones para revisarlo.</p>
+</li>
+</ul>
+<hr />
+<h2 id="4-el-ciclo-de-vida-de-un-pr-discusion-y-actualizaciones">🔄 4. El Ciclo de Vida de un PR: Discusión y Actualizaciones</h2>
+<p>Una vez que el PR está abierto:</p>
+<ol>
+<li><strong>Notificación a Revisores:</strong> Bruno y Carla son notificados.</li>
+<li><strong>Revisión:</strong> (Esto se detalla en el Módulo 4). Los revisores miran los archivos cambiados, dejan comentarios, etc.</li>
+<li><strong>Feedback y Cambios Adicionales:</strong><ul>
+<li>Supongamos que Bruno encuentra un pequeño error o sugiere una mejora en el <code>task-form.js</code> de Ana.</li>
+<li>Ana ve el comentario de Bruno.</li>
+<li>Ana hace los cambios necesarios <strong>en su rama local <code>feature/crear-tarea</code></strong>.</li>
+<li>Hace un nuevo commit: <code>git commit -m "fix: Corregir error en validación de formulario según feedback"</code>.</li>
+<li>Empuja (push) esos nuevos commits a la misma rama en GitHub: <code>git push origin feature/crear-tarea</code>.</li>
+<li><strong>¡Magia!</strong> El Pull Request en GitHub se actualiza automáticamente para incluir estos nuevos commits. Bruno y Carla verán los cambios más recientes.</li>
+</ul>
+</li>
+<li><strong>Repetir:</strong> Este ciclo de revisión-feedback-cambio puede repetirse hasta que todos estén satisfechos.</li>
+<li><strong>Aprobación:</strong> Los revisores marcan el PR como "Approved".</li>
+<li><strong>Fusión:</strong> (Se detalla en el Módulo 5).</li>
+</ol>
+<hr />
+<h2 id="practica-sugerida">🛠️ Práctica Sugerida</h2>
+<details class="exercise" open="open">
+<summary>Ejercicio: Abriendo tu Primer Pull Request</summary>
+<p><strong>Escenario:</strong> Continúas con el trabajo de la rama <code>feature/mostrar-lista-tareas</code> (o la que creaste en el Módulo 2) en el proyecto "CollabApp" (o tu proyecto de práctica).
+1.  <strong>Asegurar Cambios en GitHub:</strong>
+    *   Si no lo hiciste al final del Módulo 2, asegúrate de que tu rama de funcionalidad (ej. <code>feature/mostrar-lista-tareas</code>) con sus commits esté empujada (push) a GitHub.
+        <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># (Estando en tu rama de funcionalidad)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feature/mostrar-lista-tareas<span class="w"> </span>
+</span></code></pre></div>
+        <em>(Si ya hiciste el <code>git push -u ...</code> antes, solo <code>git push</code> es suficiente).</em></p>
+<ol>
+<li>
+<p><strong>Crear el Pull Request en GitHub:</strong></p>
+<ul>
+<li>Ve a la página de tu repositorio en GitHub.</li>
+<li>Busca la notificación para crear un PR para tu rama o ve a la pestaña "Pull requests" y haz clic en "New pull request".</li>
+<li><strong>Base:</strong> Selecciona <code>main</code>.</li>
+<li><strong>Compare:</strong> Selecciona tu rama de funcionalidad (ej. <code>feature/mostrar-lista-tareas</code>).</li>
+<li><strong>Título:</strong> Escribe un título claro, ej: <code>feat: Implementar visualización inicial de la lista de tareas</code>.</li>
+<li><strong>Descripción:</strong><ul>
+<li>Describe brevemente qué hace el PR.</li>
+<li>Menciona los archivos principales que modificaste.</li>
+<li>Si estás practicando solo, puedes escribir: "Este PR añade la estructura básica para mostrar la lista de tareas. Listo para revisión (por mí mismo en este caso de práctica 😉)."</li>
+<li>Si estás practicando con un compañero, menciónalo con <code>@nombredeusuario</code> y pídele que revise.</li>
+</ul>
+</li>
+<li><strong>Reviewers:</strong> Si tienes un compañero, asígnaselo. Si estás solo, puedes omitir esto o asignarte a ti mismo (aunque es un poco redundante).</li>
+<li><strong>Labels:</strong> (Opcional) Añade una etiqueta como <code>feature</code> o <code>frontend</code>.</li>
+<li>Haz clic en "Create pull request".</li>
+</ul>
+</li>
+<li>
+<p><strong>Explorar el PR Creado:</strong></p>
+<ul>
+<li>Una vez creado, explora las diferentes pestañas del PR:<ul>
+<li><strong>Conversation:</strong> Donde verás la descripción y donde aparecerán los comentarios.</li>
+<li><strong>Commits:</strong> Lista de los commits incluidos en este PR.</li>
+<li><strong>Checks:</strong> (Si hay CI configurada) Estado de las pruebas.</li>
+<li><strong>Files changed:</strong> ¡La más importante para la revisión! Aquí ves las diferencias (diffs) de cada archivo modificado.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>(Opcional - Si tienes un compañero o quieres simularlo): Iterar</strong></p>
+<ul>
+<li>Imagina que un revisor te pide un pequeño cambio (ej. cambiar el texto de un título en <code>task-list.html</code>).</li>
+<li>En tu máquina local, en tu rama de funcionalidad (<code>feature/mostrar-lista-tareas</code>):<ul>
+<li>Haz el cambio solicitado en <code>task-list.html</code>.</li>
+<li><code>git add task-list.html</code></li>
+<li><code>git commit -m "style: Actualizar título según feedback de revisión"</code></li>
+<li><code>git push origin feature/mostrar-lista-tareas</code></li>
+</ul>
+</li>
+<li>Vuelve al PR en GitHub y observa cómo se actualiza automáticamente con el nuevo commit y los cambios en la pestaña "Files changed".</li>
+</ul>
+</li>
+</ol>
+</details>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">✅ Puntos Clave del Módulo 3</p>
+<ul>
+<li>Un <strong>Pull Request (PR)</strong> es el mecanismo para proponer y discutir la integración de cambios de una rama a otra (generalmente <code>main</code>).</li>
+<li>Flujo básico: <code>crear rama</code> ➡️ <code>hacer commits</code> ➡️ <code>push de la rama</code> ➡️ <code>abrir PR en GitHub</code>.</li>
+<li>Un buen PR tiene un <strong>título claro</strong> y una <strong>descripción detallada</strong>.</li>
+<li>Los PRs son el lugar para la <strong>revisión de código</strong> y la discusión.</li>
+<li>Los nuevos commits empujados a una rama con un PR abierto <strong>actualizan automáticamente el PR</strong>.</li>
+</ul>
+</div>
+<hr />
+<p>¡Excelente! Ahora que sabes cómo proponer cambios formalmente, el siguiente paso es aprender cómo realizar y recibir revisiones de código efectivas dentro de estos Pull Requests. ¡Nos vemos en el Módulo 4!</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../ramas/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Ramas">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Ramas
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../revision/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Revision de Cambios">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Revision de Cambios
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Boris Salleg
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "navigation.sections", "content.tabs.link", "content.code.annotate", "content.tooltips"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,896 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../request/">
+      
+      
+        <link rel="next" href="../mergin/">
+      
+      
+      <link rel="icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Revision de Cambios - GitHub - Una guia concreta</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/styles.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#modulo-4-revision-de-codigo-y-discusion-constructiva-en-pull-requests" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="GitHub - Una guia concreta" class="md-header__button md-logo" aria-label="GitHub - Una guia concreta" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GitHub - Una guia concreta
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Revision de Cambios
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-purple"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="orange"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="GitHub - Una guia concreta" class="md-nav__button md-logo" aria-label="GitHub - Una guia concreta" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    GitHub - Una guia concreta
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fundamentos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fundamentos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ramas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ramas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pull Requests
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Revision de Cambios
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Revision de Cambios
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#seccion-1-el-valor-incalculable-de-la-revision-de-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌟 Sección 1: El Valor Incalculable de la Revisión de Código
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seccion-2-el-proceso-de-revision-en-github-paso-a-paso" class="md-nav__link">
+    <span class="md-ellipsis">
+      🕵️ Sección 2: El Proceso de Revisión en GitHub: Paso a Paso
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seccion-3-guia-del-buen-revisor" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Sección 3: Guía del Buen Revisor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seccion-4-guia-del-autor-del-pr-recibiendo-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛡️ Sección 4: Guía del Autor del PR (Recibiendo Feedback)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seccion-5-el-ciclo-de-iteracion-y-la-aprobacion-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Sección 5: El Ciclo de Iteración y la Aprobación Final
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practica-sugerida-el-duelo-de-revisiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ Práctica Sugerida: El Duelo de Revisiones 🤺
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mergin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fusion Merging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#seccion-1-el-valor-incalculable-de-la-revision-de-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌟 Sección 1: El Valor Incalculable de la Revisión de Código
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seccion-2-el-proceso-de-revision-en-github-paso-a-paso" class="md-nav__link">
+    <span class="md-ellipsis">
+      🕵️ Sección 2: El Proceso de Revisión en GitHub: Paso a Paso
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seccion-3-guia-del-buen-revisor" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Sección 3: Guía del Buen Revisor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seccion-4-guia-del-autor-del-pr-recibiendo-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛡️ Sección 4: Guía del Autor del PR (Recibiendo Feedback)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seccion-5-el-ciclo-de-iteracion-y-la-aprobacion-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Sección 5: El Ciclo de Iteración y la Aprobación Final
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practica-sugerida-el-duelo-de-revisiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ Práctica Sugerida: El Duelo de Revisiones 🤺
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="modulo-4-revision-de-codigo-y-discusion-constructiva-en-pull-requests">Módulo 4: 🔬 Revisión de Código y 💬 Discusión Constructiva en Pull Requests</h1>
+<details class="info" open="open">
+<summary>🎯 Objetivo del Módulo</summary>
+<p>Dominar el arte de la revisión de código (Code Review) dentro de GitHub. Aprenderás a dar y recibir feedback de manera efectiva, asegurando la calidad y fomentando el conocimiento compartido en el equipo de "CollabApp".</p>
+</details>
+<hr />
+<h2 id="seccion-1-el-valor-incalculable-de-la-revision-de-codigo">🌟 Sección 1: El Valor Incalculable de la Revisión de Código</h2>
+<p>La revisión de código no es solo "mirar código ajeno"; es una piedra angular para construir software robusto y equipos fuertes.</p>
+<details class="question" open="open">
+<summary>¿Por qué es tan importante?</summary>
+<ul>
+<li>🛡️ <strong>Caza de Errores Temprana:</strong> Detectar bugs, fallos lógicos y posibles problemas de seguridad <em>antes</em> de que se integren.</li>
+<li>📚 <strong>Transferencia de Conocimiento:</strong> El equipo aprende colectivamente. Si Ana implementa algo nuevo, Bruno y Carla lo entienden al revisarlo.</li>
+<li>🎓 <strong>Mentoría y Crecimiento:</strong> Los desarrolladores senior guían a los junior, y todos aprenden nuevas técnicas.</li>
+<li>✨ <strong>Consistencia y Calidad:</strong> Se asegura que el código sigue los estándares del equipo, es legible y mantenible.</li>
+<li>🏗️ <strong>Validación de Diseño:</strong> A veces, una segunda mirada revela mejores enfoques arquitectónicos.</li>
+</ul>
+</details>
+<blockquote>
+<p><strong>Para CollabApp:</strong> Cada línea de código destinada a <code>main</code> pasa por este escrutinio colaborativo.</p>
+</blockquote>
+<hr />
+<h2 id="seccion-2-el-proceso-de-revision-en-github-paso-a-paso">🕵️ Sección 2: El Proceso de Revisión en GitHub: Paso a Paso</h2>
+<p>Cuando te toca ser el detective (revisor) de un Pull Request:</p>
+<ol>
+<li>
+<p><strong>🌍 Comprende la Misión (Contexto del PR):</strong></p>
+<ul>
+<li>Lee con atención el <strong>Título</strong> y la <strong>Descripción</strong> del PR. ¿Cuál es su propósito?</li>
+<li>Si hay un <strong>Issue</strong> vinculado, ¡revísalo también!</li>
+</ul>
+</li>
+<li>
+<p><strong>🔍 Examina las Pistas (Pestaña "Files changed"):</strong></p>
+<ul>
+<li>Esta es tu sala de interrogatorios. Verás:<ul>
+<li>Archivos añadidos, modificados o eliminados.</li>
+<li>Líneas en <strong>rojo</strong> (lo que se quitó/cambió).</li>
+<li>Líneas en <strong>verde</strong> (lo que se añadió/cambió).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>✍️ Deja tus Notas (Comentarios):</strong></p>
+<ul>
+<li><strong>Comentarios Generales:</strong> En la pestaña "Conversation" para ideas globales sobre el PR.<ul>
+<li><em>Ejemplo:</em> "¡Excelente trabajo con la estructura general! Solo tengo una duda sobre el rendimiento de esta consulta..."</li>
+</ul>
+</li>
+<li><strong>Comentarios Específicos en Línea:</strong><ul>
+<li>En "Files changed", haz clic en el <code>+</code> azul que aparece al lado de una línea de código.</li>
+<li>Puedes comentar una sola línea o seleccionar un rango.</li>
+<li><em>Ejemplo:</em> En una línea con <code>let x = data[0];</code>, podrías comentar: "¿Sería <code>firstElement</code> un nombre más descriptivo para <code>x</code> aquí?"</li>
+</ul>
+</li>
+<li>💡 <strong>Sugerencias de Cambio (GitHub Suggestions):</strong> ¡Tu varita mágica para cambios pequeños!<ul>
+<li>Dentro de un comentario en línea, usa:
+    <div class="language-markdown highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>```suggestion
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>// Código que sugieres
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>const firstElement = data[0];
+</span></code></pre></div>
+    ```</li>
+<li>El autor puede aplicar tu sugerencia con un clic.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>⚖️ Emite tu Veredicto (Iniciar una Revisión Formal):</strong></p>
+<ul>
+<li>Botón "Review changes" (arriba en "Files changed"):<ul>
+<li>💬 <strong>Comment:</strong> Dejas tus comentarios, pero no bloqueas la fusión. Útil para preguntas menores o si no tienes tiempo para una revisión completa aún.</li>
+<li>👍 <strong>Approve:</strong> ¡Luz verde! Los cambios te parecen correctos y listos para fusionar.</li>
+<li>⚠️ <strong>Request changes:</strong> ¡Luz roja! Has encontrado problemas que <em>deben</em> ser resueltos antes de la fusión. Explica claramente qué se necesita.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<details class="example" open="open">
+<summary>En la Práctica con CollabApp</summary>
+<p>Bruno revisa el PR de Ana (<code>feature/crear-tarea</code>):
+1.  Lee que Ana implementó el formulario de creación.
+2.  En <code>task-form.js</code> (en "Files changed"), ve <code>let c = 0;</code>.
+3.  Bruno comenta en esa línea: "¿Podríamos usar <code>counter</code> en lugar de <code>c</code> para mayor claridad?" y además, usa una <code>suggestion</code> para proponer <code>let counter = 0;</code>.
+4.  Encuentra una lógica que podría ser un poco confusa.
+5.  Decide hacer clic en "Review changes" y selecciona "Request changes", resumiendo: "Buen inicio Ana. Por favor, revisa el nombre de la variable <code>c</code> y considera simplificar la lógica en la función X. ¡Gracias!".</p>
+</details>
+<hr />
+<h2 id="seccion-3-guia-del-buen-revisor">🎯 Sección 3: Guía del Buen Revisor</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">👍 Qué HACER (Do's)</th>
+<th style="text-align: left;">👎 Qué NO HACER (Don'ts)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">✅ Ser <strong>constructivo y amable</strong>.</td>
+<td style="text-align: left;">❌ Ser crítico o condescendiente.</td>
+</tr>
+<tr>
+<td style="text-align: left;">✅ Ser <strong>claro y específico</strong> en tus comentarios.</td>
+<td style="text-align: left;">❌ Dejar comentarios vagos como "esto está mal".</td>
+</tr>
+<tr>
+<td style="text-align: left;">✅ <strong>Explicar el <em>por qué</em></strong> de tus sugerencias.</td>
+<td style="text-align: left;">❌ Asumir que el autor entenderá tu intención sin contexto.</td>
+</tr>
+<tr>
+<td style="text-align: left;">✅ Enfocarse en <strong>correctitud, diseño, legibilidad</strong>.</td>
+<td style="text-align: left;">❌ "Nitpickear" en exceso sobre estilo si hay linters.</td>
+</tr>
+<tr>
+<td style="text-align: left;">✅ <strong>Ofrecer alternativas</strong> o ejemplos si es posible.</td>
+<td style="text-align: left;">❌ Solo señalar problemas sin dar pistas de solución.</td>
+</tr>
+<tr>
+<td style="text-align: left;">✅ Revisar de <strong>manera oportuna</strong>.</td>
+<td style="text-align: left;">❌ Dejar PRs en el limbo por días sin comunicación.</td>
+</tr>
+<tr>
+<td style="text-align: left;">✅ <strong>Hacer preguntas</strong> si algo no está claro.</td>
+<td style="text-align: left;">❌ Aprobar ciegamente sin entender los cambios.</td>
+</tr>
+<tr>
+<td style="text-align: left;">✅ <strong>Reconocer el buen trabajo</strong> también.</td>
+<td style="text-align: left;">❌ Solo enfocarse en lo negativo.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="seccion-4-guia-del-autor-del-pr-recibiendo-feedback">🛡️ Sección 4: Guía del Autor del PR (Recibiendo Feedback)</h2>
+<p>Recibir críticas, incluso constructivas, requiere una mentalidad abierta.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">👍 Qué HACER (Do's)</th>
+<th style="text-align: left;">👎 Qué NO HACER (Don'ts)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">✅ <strong>No tomarlo personal</strong>. Es sobre el código.</td>
+<td style="text-align: left;">❌ Ponerse a la defensiva o discutir cada punto.</td>
+</tr>
+<tr>
+<td style="text-align: left;">✅ <strong>Agradecer</strong> el tiempo del revisor.</td>
+<td style="text-align: left;">❌ Ignorar los comentarios o responder de mala gana.</td>
+</tr>
+<tr>
+<td style="text-align: left;">✅ <strong>Entender bien</strong> el comentario antes de actuar.</td>
+<td style="text-align: left;">❌ Hacer cambios sin entender completamente el feedback.</td>
+</tr>
+<tr>
+<td style="text-align: left;">✅ <strong>Discutir constructivamente</strong> si hay desacuerdos.</td>
+<td style="text-align: left;">❌ Quedarse callado si no se está de acuerdo o no se entiende.</td>
+</tr>
+<tr>
+<td style="text-align: left;">✅ <strong>Hacer los cambios</strong> solicitados (o justificar).</td>
+<td style="text-align: left;">❌ Dejar el PR abandonado tras recibir feedback.</td>
+</tr>
+<tr>
+<td style="text-align: left;">✅ <strong>Commitear y pushear</strong> los cambios a la misma rama.</td>
+<td style="text-align: left;">❌ Abrir un nuevo PR para los mismos cambios.</td>
+</tr>
+<tr>
+<td style="text-align: left;">✅ <strong>Notificar al revisor</strong> cuando los cambios estén listos.</td>
+<td style="text-align: left;">❌ Asumir que el revisor adivinará que actualizaste el PR.</td>
+</tr>
+</tbody>
+</table>
+<details class="example" open="open">
+<summary>Ana Responde al Feedback de Bruno</summary>
+<ol>
+<li>Ana lee los comentarios de Bruno en su PR.</li>
+<li>Agradece a Bruno: "@Bruno ¡Gracias por la revisión detallada!"</li>
+<li>Cambia <code>let c = 0;</code> a <code>let counter = 0;</code> en su código local.</li>
+<li>Reflexiona sobre la lógica que Bruno mencionó y encuentra una forma de simplificarla.</li>
+<li>Hace un nuevo commit: <code>git commit -m "refactor: Mejorar nombres de variables y simplificar lógica según revisión"</code></li>
+<li><code>git push origin feature/crear-tarea</code> (el PR se actualiza).</li>
+<li>Responde a los comentarios de Bruno en GitHub, explicando los cambios y marcando las conversaciones como resueltas si procede.</li>
+<li>Comenta en el PR: "@Bruno ¡Listo! He aplicado tus sugerencias. ¿Podrías echarle otro vistazo?"</li>
+</ol>
+</details>
+<hr />
+<h2 id="seccion-5-el-ciclo-de-iteracion-y-la-aprobacion-final">🔄 Sección 5: El Ciclo de Iteración y la Aprobación Final</h2>
+<ol>
+<li><strong>Iteración:</strong> El ping-pong de [Revisión ➡️ Feedback ➡️ Cambios del Autor ➡️ Nuevo Push ➡️ Siguiente Revisión] es normal.</li>
+<li><strong>Resolver Conversaciones:</strong> En GitHub, una vez que un punto de discusión está solucionado, se puede marcar como "Resolved". Esto ayuda a limpiar la vista del PR.</li>
+<li><strong>¡Luz Verde! (Aprobación):</strong><ul>
+<li>Cuando los revisores están satisfechos, seleccionan "Approve" en su revisión.</li>
+<li><em>Dependiendo de las reglas del repositorio (branch protection rules), puede que se necesite un número mínimo de aprobaciones.</em></li>
+</ul>
+</li>
+</ol>
+<details class="example" open="open">
+<summary>La Aprobación en CollabApp</summary>
+<p>Bruno revisa los últimos cambios de Ana. Todo está perfecto.
+*   Bruno va a "Review changes" en el PR.
+*   Escribe un comentario final: "¡Se ve genial ahora, Ana! Buen trabajo."
+*   Selecciona <strong>"Approve"</strong>.
+Carla también revisa y aprueba. El PR de Ana ahora tiene el visto bueno del equipo.</p>
+</details>
+<hr />
+<h2 id="practica-sugerida-el-duelo-de-revisiones">🛠️ Práctica Sugerida: El Duelo de Revisiones 🤺</h2>
+<details class="exercise" open="open">
+<summary>Ejercicio: Revisión Cruzada (Ideal en Parejas)</summary>
+<p><strong>Objetivo:</strong> Simular el ciclo completo de revisión. Si estás solo, juega ambos roles.</p>
+<p><strong>Fase 1: Preparación (Autor)</strong>
+1.  Asegúrate de tener un PR abierto del Módulo 3 (ej., <code>feature/mostrar-lista-tareas</code>).
+2.  <strong>(Para el ejercicio)</strong> Introduce sutilmente 1 o 2 "áreas de mejora" en tu código (un nombre de variable confuso, una pequeña lógica repetida, un comentario obsoleto).
+3.  Haz commit y push de estos cambios a tu rama de funcionalidad. Tu PR se actualizará.</p>
+<p><strong>Fase 2: La Revisión (Revisor)</strong>
+1.  (Si tienes compañero, intercambien PRs). Abre el PR a revisar.
+2.  <strong>Misión:</strong> Encuentra las "áreas de mejora" y sugiere correcciones.
+3.  Deja al menos:
+    *   Un comentario en línea específico.
+    *   Una "GitHub Suggestion" para un cambio directo.
+    *   Un comentario general en la pestaña "Conversation" del PR.
+4.  Envía tu revisión formal: <code>Request changes</code> (si encontraste cosas a mejorar) o <code>Comment</code>.</p>
+<p><strong>Fase 3: La Respuesta (Autor)</strong>
+1.  Recibe el feedback. Agradece.
+2.  En tu rama local, aplica las correcciones/sugerencias.
+3.  Haz commit y push de los arreglos.
+4.  Responde a los comentarios en GitHub, explicando tus acciones. Marca conversaciones como resueltas.
+5.  Notifica al revisor que el PR está listo para una segunda mirada.</p>
+<p><strong>Fase 4: La Aprobación (Revisor)</strong>
+1.  Revisa los cambios actualizados.
+2.  Si todo está en orden, cambia tu revisión a <code>Approve</code>. ¡Victoria!</p>
+</details>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">✅ Logros de Este Módulo</p>
+<ul>
+<li>Comprendes el <strong>valor fundamental</strong> de la revisión de código.</li>
+<li>Sabes cómo <strong>navegar y usar las herramientas de revisión</strong> de PRs en GitHub (comentarios, sugerencias, aprobación/solicitud de cambios).</li>
+<li>Conoces las <strong>buenas prácticas</strong> tanto para ser un revisor efectivo como para recibir feedback constructivamente.</li>
+<li>Has practicado el <strong>ciclo iterativo</strong> de revisión y mejora.</li>
+</ul>
+</div>
+<hr />
+<p>Con tus cambios revisados y aprobados, ¡estás a un paso de integrarlos! El próximo módulo trata sobre cómo fusionar esos Pull Requests y gestionar tus ramas post-fusión. ¡Adelante al Módulo 5!</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../request/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Pull Requests">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Pull Requests
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../mergin/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Fusion Merging">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Fusion Merging
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Boris Salleg
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "navigation.sections", "content.tabs.link", "content.code.annotate", "content.tooltips"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
