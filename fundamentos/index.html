@@ -1,0 +1,1045 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../ramas/">
+      
+      
+      <link rel="icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Fundamentos - GitHub - Una guia concreta</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/styles.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#modulo-1-fundamentos-de-git-y-github" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="GitHub - Una guia concreta" class="md-header__button md-logo" aria-label="GitHub - Una guia concreta" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GitHub - Una guia concreta
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Fundamentos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-purple"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="orange"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="GitHub - Una guia concreta" class="md-nav__button md-logo" aria-label="GitHub - Una guia concreta" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    GitHub - Una guia concreta
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Fundamentos
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fundamentos
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-que-es-el-control-de-versiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      📜 1. ¿Qué es el Control de Versiones?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-git-vs-github-entendiendo-la-diferencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      🆚 2. Git vs. GitHub: Entendiendo la Diferencia
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-instalacion-y-configuracion-de-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ 3. Instalación y Configuración de Git
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-conceptos-clave-de-git-trabajo-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔑 4. Conceptos Clave de Git (Trabajo Local)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-creacion-de-una-cuenta-en-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌐 5. Creación de una Cuenta en GitHub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-creacion-de-un-repositorio-remoto-en-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      ☁️ 6. Creación de un Repositorio Remoto en GitHub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-conectar-repositorio-local-con-remoto-y-subir-cambios" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔗 7. Conectar Repositorio Local con Remoto y Subir Cambios
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-clonar-un-repositorio-remoto-git-clone" class="md-nav__link">
+    <span class="md-ellipsis">
+      📥 8. Clonar un Repositorio Remoto (git clone)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-sincronizar-cambios-push-y-pull" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 9. Sincronizar Cambios: push y pull
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-archivos-esenciales-gitignore-y-readmemd" class="md-nav__link">
+    <span class="md-ellipsis">
+      📄 10. Archivos Esenciales: .gitignore y README.md
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practica-sugerida" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ Práctica Sugerida
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ramas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ramas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pull Requests
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Revision de Cambios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mergin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fusion Merging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-que-es-el-control-de-versiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      📜 1. ¿Qué es el Control de Versiones?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-git-vs-github-entendiendo-la-diferencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      🆚 2. Git vs. GitHub: Entendiendo la Diferencia
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-instalacion-y-configuracion-de-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ 3. Instalación y Configuración de Git
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-conceptos-clave-de-git-trabajo-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔑 4. Conceptos Clave de Git (Trabajo Local)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-creacion-de-una-cuenta-en-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌐 5. Creación de una Cuenta en GitHub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-creacion-de-un-repositorio-remoto-en-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      ☁️ 6. Creación de un Repositorio Remoto en GitHub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-conectar-repositorio-local-con-remoto-y-subir-cambios" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔗 7. Conectar Repositorio Local con Remoto y Subir Cambios
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-clonar-un-repositorio-remoto-git-clone" class="md-nav__link">
+    <span class="md-ellipsis">
+      📥 8. Clonar un Repositorio Remoto (git clone)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-sincronizar-cambios-push-y-pull" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 9. Sincronizar Cambios: push y pull
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-archivos-esenciales-gitignore-y-readmemd" class="md-nav__link">
+    <span class="md-ellipsis">
+      📄 10. Archivos Esenciales: .gitignore y README.md
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practica-sugerida" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ Práctica Sugerida
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="modulo-1-fundamentos-de-git-y-github">Módulo 1: Fundamentos de Git y GitHub</h1>
+<details class="info" open="open">
+<summary>🎯 Objetivo del Módulo</summary>
+<p>Entender qué es Git, qué es GitHub y cómo se relacionan. Configurar el entorno local y remoto para empezar a trabajar en el proyecto "CollabApp".</p>
+</details>
+<hr />
+<h2 id="1-que-es-el-control-de-versiones">📜 1. ¿Qué es el Control de Versiones?</h2>
+<p>El Control de Versiones (VCS) es un sistema que registra los cambios realizados en un archivo o conjunto de archivos a lo largo del tiempo. Esto permite recuperar versiones específicas más adelante, comparar cambios, y colaborar de manera más eficiente.</p>
+<blockquote>
+<p><strong>Piénsalo como:</strong> Un historial detallado de "guardados" de tu proyecto, permitiéndote volver atrás o entender la evolución del mismo.</p>
+</blockquote>
+<hr />
+<h2 id="2-git-vs-github-entendiendo-la-diferencia">🆚 2. Git vs. GitHub: Entendiendo la Diferencia</h2>
+<p>Es crucial distinguir entre estas dos herramientas que, aunque relacionadas, cumplen funciones diferentes:</p>
+<ul>
+<li>
+<p><strong>Git:</strong></p>
+<ul>
+<li>Es el <strong>software de control de versiones distribuido</strong> que se ejecuta en tu computadora.</li>
+<li>Permite rastrear cambios, crear ramas, fusionar trabajo, etc., de forma <strong>local</strong>.</li>
+<li>Es la herramienta fundamental para la gestión de versiones.</li>
+</ul>
+</li>
+<li>
+<p><strong>GitHub:</strong></p>
+<ul>
+<li>Es una <strong>plataforma web</strong> que aloja repositorios Git en la nube.</li>
+<li>Facilita la <strong>colaboración en equipo</strong>, la revisión de código (Pull Requests), la gestión de proyectos (Issues), y sirve como un "backup" centralizado y accesible de tu código.</li>
+<li>Actúa como un <strong>hub central</strong> para los repositorios Git.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>En resumen:</strong> <code>Git</code> es el motor, <code>GitHub</code> es la plataforma que potencia su uso colaborativo en la web.</p>
+</blockquote>
+<hr />
+<h2 id="3-instalacion-y-configuracion-de-git">⚙️ 3. Instalación y Configuración de Git</h2>
+<p>Para empezar a usar Git, primero necesitas instalarlo y configurarlo.</p>
+<details class="tip" open="open">
+<summary>Paso 1: Instalación de Git</summary>
+<p>Visita <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a> y descarga el instalador adecuado para tu sistema operativo (Windows, macOS, Linux). Sigue las instrucciones del instalador.</p>
+</details>
+<details class="tip" open="open">
+<summary>Paso 2: Configuración Inicial de Identidad</summary>
+<p>Una vez instalado, abre una terminal (Git Bash en Windows, Terminal en macOS/Linux) y configura tu nombre de usuario y correo electrónico. Estos datos se asociarán a tus commits.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;Tu Nombre Completo&quot;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;tu.email@ejemplo.com&quot;</span>
+</span></code></pre></div>
+*   La opción <code>--global</code> aplica esta configuración a todos tus proyectos Git.</p>
+</details>
+<hr />
+<h2 id="4-conceptos-clave-de-git-trabajo-local">🔑 4. Conceptos Clave de Git (Trabajo Local)</h2>
+<p>Estos son los pilares del trabajo con Git en tu máquina:</p>
+<ul>
+<li>
+<p><strong>Repositorio (<code>git init</code>):</strong></p>
+<ul>
+<li>Es la carpeta de tu proyecto que Git va a rastrear. Se crea ejecutando <code>git init</code> dentro de la carpeta del proyecto.</li>
+<li><em>Caso CollabApp:</em> Ana crea una carpeta <code>CollabApp</code> y la inicializa:
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mkdir<span class="w"> </span>CollabApp
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">cd</span><span class="w"> </span>CollabApp
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>git<span class="w"> </span>init
+</span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p><strong>Área de Staging (<code>git add</code>):</strong></p>
+<ul>
+<li>Antes de confirmar (hacer commit) los cambios, debes seleccionar explícitamente qué modificaciones quieres incluir en la próxima "foto" del proyecto.</li>
+<li><code>git add &lt;nombre_archivo&gt;</code>: Añade un archivo específico al staging area.</li>
+<li><code>git add .</code>: Añade todos los archivos modificados o nuevos en el directorio actual y subdirectorios.</li>
+<li><em>Caso CollabApp:</em> Ana crea <code>README.md</code> y lo añade al staging:
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;# CollabApp - Herramienta de Gestión de Tareas&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>README.md
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git<span class="w"> </span>add<span class="w"> </span>README.md
+</span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p><strong>Confirmaciones / Commits (<code>git commit</code>):</strong></p>
+<ul>
+<li>Es el acto de guardar los cambios preparados (staged) en el historial del repositorio. Cada commit es una "instantánea" del proyecto en un momento dado.</li>
+<li>Es crucial escribir un <strong>mensaje de commit claro y descriptivo</strong>.
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: Inicializar proyecto con README básico&quot;</span>
+</span></code></pre></div></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Convenciones de Mensajes de Commit</p>
+<p>Es una buena práctica usar prefijos para indicar el tipo de cambio (ej. <code>feat:</code> para nueva funcionalidad, <code>fix:</code> para corrección, <code>docs:</code> para documentación, <code>style:</code>, <code>refactor:</code>, <code>test:</code>, <code>chore:</code> para mantenimiento).</p>
+</div>
+</li>
+<li>
+<p><strong>Historial (<code>git log</code>):</strong></p>
+<ul>
+<li>Muestra la lista de commits realizados, quién los hizo, cuándo y con qué mensaje.
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>log
+</span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p><strong>Estado (<code>git status</code>):</strong></p>
+<ul>
+<li>Muestra el estado actual de tus archivos: modificados pero no en staging, en staging, sin rastrear, o si la rama actual está al día con la remota. Es un comando que usarás constantemente.
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>status
+</span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="5-creacion-de-una-cuenta-en-github">🌐 5. Creación de una Cuenta en GitHub</h2>
+<p>Dirígete a <a href="https://github.com">https://github.com</a> y sigue el proceso de registro ("Sign up") para crear tu cuenta personal.</p>
+<hr />
+<h2 id="6-creacion-de-un-repositorio-remoto-en-github">☁️ 6. Creación de un Repositorio Remoto en GitHub</h2>
+<p>Una vez con tu cuenta, puedes crear repositorios para alojar tus proyectos.</p>
+<ul>
+<li><em>Caso CollabApp:</em> Ana, desde su cuenta de GitHub:<ol>
+<li>Clic en el icono "+" (esquina superior derecha) ➡️ "New repository".</li>
+<li><strong>Repository name:</strong> <code>CollabApp</code></li>
+<li><strong>Description:</strong> (Opcional) "Proyecto de herramienta de gestión de tareas."</li>
+<li>Elige entre <strong>Public</strong> o <strong>Private</strong>. (Para CollabApp, eligen Privado).</li>
+<li><strong>Importante:</strong> <em>No</em> selecciones "Initialize this repository with a README", ".gitignore", o "license" si ya tienes un proyecto local existente que quieres subir.</li>
+<li>Clic en "Create repository".</li>
+</ol>
+</li>
+</ul>
+<hr />
+<h2 id="7-conectar-repositorio-local-con-remoto-y-subir-cambios">🔗 7. Conectar Repositorio Local con Remoto y Subir Cambios</h2>
+<p>Ahora, vincularemos el repositorio local de Ana con el que acaba de crear en GitHub.</p>
+<details class="abstract" open="open">
+<summary>Pasos para Conectar y Subir</summary>
+<ol>
+<li>
+<p><strong>Añadir el Remoto:</strong>
+    GitHub te proporcionará una URL para tu repositorio remoto (ej. <code>https://github.com/TuUsuario/CollabApp.git</code>). Usa esta URL para "registrar" el remoto en tu Git local:
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># (Dentro de la carpeta local CollabApp)</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>https://github.com/TuUsuario/CollabApp.git
+</span></code></pre></div></p>
+<ul>
+<li><code>origin</code> es el nombre por defecto y más común para el repositorio remoto principal.</li>
+</ul>
+</li>
+<li>
+<p><strong>Verificar Remotos Configurados:</strong>
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git<span class="w"> </span>remote<span class="w"> </span>-v
+</span></code></pre></div>
+    Esto mostrará las URLs para <code>fetch</code> (traer) y <code>push</code> (enviar) de <code>origin</code>.</p>
+</li>
+<li>
+<p><strong>(Opcional pero Recomendado) Renombrar Rama Principal a <code>main</code>:</strong>
+    Si tu rama principal local se llama <code>master</code> (común en versiones antiguas de Git), es buena práctica renombrarla a <code>main</code>:
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git<span class="w"> </span>branch<span class="w"> </span>-M<span class="w"> </span>main
+</span></code></pre></div></p>
+</li>
+<li>
+<p><strong>Empujar (Push) los Commits Locales al Remoto:</strong>
+    La primera vez que empujas a un nuevo repositorio o una nueva rama, necesitas especificar a dónde van los cambios y establecer un seguimiento (upstream):
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
+</span></code></pre></div></p>
+<ul>
+<li><code>-u</code> (o <code>--set-upstream</code>) vincula tu rama <code>main</code> local con la rama <code>main</code> en <code>origin</code>.</li>
+<li>En pushes subsecuentes desde esta rama, solo necesitarás <code>git push</code>.</li>
+</ul>
+</li>
+</ol>
+</details>
+<hr />
+<h2 id="8-clonar-un-repositorio-remoto-git-clone">📥 8. Clonar un Repositorio Remoto (<code>git clone</code>)</h2>
+<p>Para que otros miembros del equipo (Bruno y Carla) puedan trabajar en "CollabApp", necesitan obtener una copia del proyecto.</p>
+<ul>
+<li><em>Caso CollabApp:</em> Bruno y Carla ejecutan en sus terminales:
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/UsuarioDeAna/CollabApp.git
+</span></code></pre></div><ul>
+<li>Esto crea una carpeta <code>CollabApp</code> en sus máquinas con todo el proyecto.</li>
+<li>Automáticamente configura el remoto <code>origin</code> para apuntar al repositorio de GitHub desde donde se clonó.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="9-sincronizar-cambios-push-y-pull">🔄 9. Sincronizar Cambios: <code>push</code> y <code>pull</code></h2>
+<p>La colaboración implica enviar y recibir cambios:</p>
+<ul>
+<li>
+<p><strong><code>git push</code>:</strong></p>
+<ul>
+<li>Envía tus commits locales (que están en tu máquina pero no en GitHub) al repositorio remoto.</li>
+<li><em>Ejemplo:</em> Después de hacer nuevos commits, Ana ejecuta <code>git push</code> para compartir su progreso.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>git pull</code>:</strong></p>
+<ul>
+<li>Trae los cambios del repositorio remoto a tu copia local y trata de fusionarlos con tu trabajo actual.</li>
+<li>Es una combinación de <code>git fetch</code> (que descarga los cambios remotos) y <code>git merge</code> (que los integra).</li>
+<li><em>Ejemplo:</em> Antes de empezar a trabajar, o para obtener los cambios de Ana, Bruno ejecuta <code>git pull origin main</code>.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="10-archivos-esenciales-gitignore-y-readmemd">📄 10. Archivos Esenciales: <code>.gitignore</code> y <code>README.md</code></h2>
+<p>Dos archivos son cruciales para la buena gestión de un repositorio:</p>
+<ul>
+<li>
+<p><strong><code>.gitignore</code>:</strong></p>
+<ul>
+<li>Un archivo de texto plano llamado <code>.gitignore</code> (con el punto al inicio).</li>
+<li>Especifica archivos y carpetas que Git debe <strong>ignorar</strong> y no rastrear.</li>
+<li>Esencial para evitar subir archivos generados, dependencias (ej. <code>node_modules/</code>), archivos de configuración del IDE, o datos sensibles.</li>
+<li><em>Ejemplo de contenido para <code>.gitignore</code> en CollabApp:</em>
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a># Dependencias
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>node_modules/
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>vendor/
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a># Archivos de entorno (¡Nunca subir secretos!)
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>.env
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>*.env.local
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a># Logs
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>*.log
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>npm-debug.log*
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>yarn-debug.log*
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>yarn-error.log*
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a># Archivos de build/distribución
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>dist/
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>build/
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a># Archivos de sistema operativo
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>.DS_Store
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>Thumbs.db
+</span></code></pre></div></li>
+<li><strong>Importante:</strong> Crea, añade y commitea tu <code>.gitignore</code> al repositorio.
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Crear el archivo .gitignore con el contenido deseado</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>git<span class="w"> </span>add<span class="w"> </span>.gitignore
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;chore: Añadir archivo .gitignore con patrones básicos&quot;</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>git<span class="w"> </span>push
+</span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p><strong><code>README.md</code>:</strong></p>
+<ul>
+<li>Es la "portada" de tu proyecto en GitHub. Escrito en formato <a href="https://www.markdownguide.org/basic-syntax/">Markdown</a>.</li>
+<li>Debe proporcionar una descripción clara del proyecto: qué hace, cómo instalarlo, cómo usarlo, y (eventualmente) cómo contribuir.</li>
+<li>Es lo primero que un visitante (o un nuevo miembro del equipo) verá.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="practica-sugerida">🛠️ Práctica Sugerida</h2>
+<details class="exercise" open="open">
+<summary>Ejercicio 1: Configuración y Primer Repositorio Individual</summary>
+<ol>
+<li>Asegúrate de que Git esté instalado y configurado con tu <code>user.name</code> y <code>user.email</code>.</li>
+<li>Crea una cuenta en GitHub si no la tienes.</li>
+<li>En GitHub, crea un nuevo repositorio privado llamado <code>mi-primer-proyecto-colaborativo</code> (sin inicializarlo con archivos).</li>
+<li>En tu máquina local, crea una carpeta con el mismo nombre, entra en ella e inicializa un repositorio Git (<code>git init</code>).</li>
+<li>Crea un archivo <code>README.md</code> con una breve descripción de lo que harías en un proyecto colaborativo.</li>
+<li>Crea un archivo <code>.gitignore</code> e incluye al menos <code>*.log</code> y una carpeta como <code>temp/</code> o <code>cache/</code>.</li>
+<li>Añade ambos archivos al staging area (<code>git add .</code>).</li>
+<li>Realiza un commit con un mensaje descriptivo (ej. <code>feat: Configuración inicial del proyecto con README y gitignore</code>).</li>
+<li>Conecta tu repositorio local con el remoto de GitHub (<code>git remote add origin &lt;URL_DE_TU_REPO&gt;</code>).</li>
+<li>(Si es necesario) Renombra tu rama principal a <code>main</code> (<code>git branch -M main</code>).</li>
+<li>Empuja tus cambios a GitHub (<code>git push -u origin main</code>).</li>
+<li>Verifica en GitHub que tus archivos están allí.</li>
+</ol>
+</details>
+<details class="exercise" open="open">
+<summary>Ejercicio 2 (Opcional, en Pareja): Simulación Básica de Colaboración</summary>
+<ul>
+<li><strong>Persona A:</strong><ol>
+<li>Crea un nuevo repositorio privado en GitHub (ej. <code>CollabApp-Test</code>).</li>
+<li>Lo clona a su máquina.</li>
+<li>Añade un <code>README.md</code> simple y un <code>.gitignore</code>. Hace commit y push.</li>
+<li>Invita a la Persona B como colaboradora al repositorio en GitHub (Settings &gt; Manage access &gt; Invite a collaborator).</li>
+</ol>
+</li>
+<li><strong>Persona B:</strong><ol>
+<li>Acepta la invitación.</li>
+<li>Clona el repositorio <code>CollabApp-Test</code> a su máquina.</li>
+<li>Modifica el <code>README.md</code> (añade una línea o cambia algo).</li>
+<li>Hace <code>git add README.md</code>, <code>git commit -m "docs: Actualización del README por Persona B"</code>, y <code>git push</code>.</li>
+</ol>
+</li>
+<li><strong>Persona A:</strong><ol>
+<li>En su repositorio local, ejecuta <code>git pull origin main</code>.</li>
+<li>Verifica que el <code>README.md</code> ahora incluye los cambios de la Persona B.</li>
+</ol>
+</li>
+</ul>
+</details>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">✅ Puntos Clave del Módulo 1</p>
+<ul>
+<li>Diferencia entre <strong>Git (local)</strong> y <strong>GitHub (remoto/plataforma)</strong>.</li>
+<li>Configuración básica de Git (<code>user.name</code>, <code>user.email</code>).</li>
+<li>Flujo de trabajo local fundamental: <code>init</code> ➡️ <code>add</code> ➡️ <code>commit</code>.</li>
+<li>Conexión con GitHub: <code>remote add</code>, <code>push</code>.</li>
+<li>Obtención de proyectos: <code>clone</code>.</li>
+<li>Sincronización: <code>pull</code> (para obtener cambios), <code>push</code> (para enviar cambios).</li>
+<li>Importancia y uso básico de <code>.gitignore</code> y <code>README.md</code>.</li>
+</ul>
+</div>
+<hr />
+<p>Ahora estás listo para el siguiente paso: aprender sobre <strong>ramas (branches)</strong>, que son esenciales para el trabajo paralelo y colaborativo.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Anterior: Index">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Index
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ramas/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Ramas">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Ramas
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Boris Salleg
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "navigation.sections", "content.tabs.link", "content.code.annotate", "content.tooltips"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
