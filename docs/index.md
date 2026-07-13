@@ -8,6 +8,8 @@ En el mundo del desarrollo de software, la **colaboración**, la **organización
 
 ## **¿Qué es Git?**
 
+![Logo Git](https://opsera.ai/wp-content/uploads/2025/07/5f2f630735aafe2300802edd_git-logo.png)
+
 Git es un sistema de **control de versiones distribuido** diseñado para rastrear cambios en archivos a lo largo del tiempo. En términos simples, Git actúa como una máquina del tiempo para tu código:
 
 - Cada vez que realizas un cambio, puedes guardarlo como un "punto de control" (llamado *commit*).
@@ -20,6 +22,7 @@ Git es especialmente útil cuando trabajas en proyectos complejos o cuando neces
 ---
 
 ## **¿Qué es GitHub?**
+![logo github](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnN559pNgOvCk_QUar3TTkZcxhK1CMuylRCrA7zHdDtqOMlWN05hDp8FhM&s=10)
 
 Si Git es la herramienta que gestiona los cambios en tu código, **GitHub** es el lugar donde compartes y colaboras en esos cambios. 
 
