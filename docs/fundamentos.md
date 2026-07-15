@@ -1,11 +1,11 @@
-# Módulo 1: Fundamentos de Git y GitHub 
+#**Módulo 1: Fundamentos de Git y GitHub** 
 
 ???+ info "🎯 Objetivo del Módulo"
     Entender qué es Git, qué es GitHub y cómo se relacionan. Configurar el entorno local y remoto para empezar a trabajar en el proyecto "CollabApp".
 
 ---
 
-## 📜 1. ¿Qué es el Control de Versiones?
+##**📜 ¿Qué es el Control de Versiones?**
 
 El Control de Versiones (VCS) es un sistema que registra los cambios realizados en un archivo o conjunto de archivos a lo largo del tiempo. Esto permite recuperar versiones específicas más adelante, comparar cambios, y colaborar de manera más eficiente.
 
@@ -13,7 +13,7 @@ El Control de Versiones (VCS) es un sistema que registra los cambios realizados 
 
 ---
 
-## 🆚 2. Git vs. GitHub: Entendiendo la Diferencia
+##**🆚 Git vs. GitHub: Entendiendo la Diferencia**
 
 Es crucial distinguir entre estas dos herramientas que, aunque relacionadas, cumplen funciones diferentes:
 
@@ -30,199 +30,190 @@ Es crucial distinguir entre estas dos herramientas que, aunque relacionadas, cum
 >   **En resumen:** `Git` es el motor, `GitHub` es la plataforma que potencia su uso colaborativo en la web.
 
 ---
+???+ info "Git"
 
-## ⚙️ 3. Instalación y Configuración de Git
+    === "**⚙️ Instalación y Configuración de Git**"
 
-Para empezar a usar Git, primero necesitas instalarlo y configurarlo.
+        Para empezar a usar Git, primero necesitas instalarlo y configurarlo.
 
-???+ tip "Paso 1: Instalación de Git"
-    Visita [https://git-scm.com/downloads](https://git-scm.com/downloads) y descarga el instalador adecuado para tu sistema operativo (Windows, macOS, Linux). Sigue las instrucciones del instalador.
+        ???+ tip "Paso 1: Instalación de Git"
+            Visita [https://git-scm.com/downloads](https://git-scm.com/downloads) y descarga el instalador adecuado para tu sistema operativo (Windows, macOS, Linux). Sigue las instrucciones del instalador.
 
-???+ tip "Paso 2: Configuración Inicial de Identidad"
-    Una vez instalado, abre una terminal (Git Bash en Windows, Terminal en macOS/Linux) y configura tu nombre de usuario y correo electrónico. Estos datos se asociarán a tus commits.
-    ```bash
-    git config --global user.name "Tu Nombre Completo"
-    git config --global user.email "tu.email@ejemplo.com"
-    ```
-    *   La opción `--global` aplica esta configuración a todos tus proyectos Git.
+        ???+ tip "Paso 2: Configuración Inicial de Identidad"
+            Una vez instalado, abre una terminal (Git Bash en Windows, Terminal en macOS/Linux) y configura tu nombre de usuario y correo electrónico. Estos datos se asociarán a tus commits.
+            ```bash
+            git config --global user.name "Tu Nombre Completo"
+            git config --global user.email "tu.email@ejemplo.com"
+            ```
+            *   La opción `--global` aplica esta configuración a todos tus proyectos Git.
 
----
 
-## 🔑 4. Conceptos Clave de Git (Trabajo Local)
 
-Estos son los pilares del trabajo con Git en tu máquina:
+    === "**Conceptos Clave de Git (Trabajo Local)**"
 
-*   **Repositorio (`git init`):**
-    *   Es la carpeta de tu proyecto que Git va a rastrear. Se crea ejecutando `git init` dentro de la carpeta del proyecto.
-    *   *Caso CollabApp:* Ana crea una carpeta `CollabApp` y la inicializa:
-        ```bash
-        mkdir CollabApp
-        cd CollabApp
-        git init
-        ```
+        Estos son los pilares del trabajo con Git en tu máquina:
 
-*   **Área de Staging (`git add`):**
-    *   Antes de confirmar (hacer commit) los cambios, debes seleccionar explícitamente qué modificaciones quieres incluir en la próxima "foto" del proyecto.
-    *   `git add <nombre_archivo>`: Añade un archivo específico al staging area.
-    *   `git add .`: Añade todos los archivos modificados o nuevos en el directorio actual y subdirectorios.
-    *   *Caso CollabApp:* Ana crea `README.md` y lo añade al staging:
-        ```bash
-        echo "# CollabApp - Herramienta de Gestión de Tareas" > README.md
-        git add README.md
-        ```
+        *   **Repositorio (`git init`):**
+            *   Es la carpeta de tu proyecto que Git va a rastrear. Se crea ejecutando `git init` dentro de la carpeta del proyecto.
+            *   *Caso CollabApp:* Ana crea una carpeta `CollabApp` y la inicializa:
+                ```bash
+                mkdir CollabApp
+                cd CollabApp
+                git init
+                ```
 
-*   **Confirmaciones / Commits (`git commit`):**
-    *   Es el acto de guardar los cambios preparados (staged) en el historial del repositorio. Cada commit es una "instantánea" del proyecto en un momento dado.
-    *   Es crucial escribir un **mensaje de commit claro y descriptivo**.
-        ```bash
-        git commit -m "feat: Inicializar proyecto con README básico"
-        ```
-    !!! note "Convenciones de Mensajes de Commit"
-        Es una buena práctica usar prefijos para indicar el tipo de cambio (ej. `feat:` para nueva funcionalidad, `fix:` para corrección, `docs:` para documentación, `style:`, `refactor:`, `test:`, `chore:` para mantenimiento).
+        *   **Área de Staging (`git add`):**
+            *   Antes de confirmar (hacer commit) los cambios, debes seleccionar explícitamente qué modificaciones quieres incluir en la próxima "foto" del proyecto.
+            *   `git add <nombre_archivo>`: Añade un archivo específico al staging area.
+            *   `git add .`: Añade todos los archivos modificados o nuevos en el directorio actual y subdirectorios.
+            *   *Caso CollabApp:* Ana crea `README.md` y lo añade al staging:
+                ```bash
+                echo "# CollabApp - Herramienta de Gestión de Tareas" > README.md
+                git add README.md
+                ```
 
-*   **Historial (`git log`):**
-    *   Muestra la lista de commits realizados, quién los hizo, cuándo y con qué mensaje.
-        ```bash
-        git log
-        ```
+        *   **Confirmaciones / Commits (`git commit`):**
+            *   Es el acto de guardar los cambios preparados (staged) en el historial del repositorio. Cada commit es una "instantánea" del proyecto en un momento dado.
+            *   Es crucial escribir un **mensaje de commit claro y descriptivo**.
+                ```bash
+                git commit -m "feat: Inicializar proyecto con README básico"
+                ```
+            !!! note "Convenciones de Mensajes de Commit"
+                Es una buena práctica usar prefijos para indicar el tipo de cambio (ej. `feat:` para nueva funcionalidad, `fix:` para corrección, `docs:` para documentación, `style:`, `refactor:`, `test:`, `chore:` para mantenimiento).
 
-*   **Estado (`git status`):**
-    *   Muestra el estado actual de tus archivos: modificados pero no en staging, en staging, sin rastrear, o si la rama actual está al día con la remota. Es un comando que usarás constantemente.
-        ```bash
-        git status
-        ```
+        *   **Historial (`git log`):**
+            *   Muestra la lista de commits realizados, quién los hizo, cuándo y con qué mensaje.
+                ```bash
+                git log
+                ```
 
----
+        *   **Estado (`git status`):**
+            *   Muestra el estado actual de tus archivos: modificados pero no en staging, en staging, sin rastrear, o si la rama actual está al día con la remota. Es un comando que usarás constantemente.
+                ```bash
+                git status
+                ```
 
-## 🌐 5. Creación de una Cuenta en GitHub
 
-Dirígete a [https://github.com](https://github.com) y sigue el proceso de registro ("Sign up") para crear tu cuenta personal.
+???+ info "**Creación de una Cuenta en GitHub**"
 
----
+    Dirígete a [https://github.com](https://github.com) y sigue el proceso de registro ("Sign up") para crear tu cuenta personal.
 
-## ☁️ 6. Creación de un Repositorio Remoto en GitHub
+    === "Creación de un Repositorio Remoto en GitHub"
 
-Una vez con tu cuenta, puedes crear repositorios para alojar tus proyectos.
+        Una vez con tu cuenta, puedes crear repositorios para alojar tus proyectos.
 
-*   *Caso CollabApp:* Ana, desde su cuenta de GitHub:
-    1.  Clic en el icono "+" (esquina superior derecha) ➡️ "New repository".
-    2.  **Repository name:** `CollabApp`
-    3.  **Description:** (Opcional) "Proyecto de herramienta de gestión de tareas."
-    4.  Elige entre **Public** o **Private**. (Para CollabApp, eligen Privado).
-    5.  **Importante:** *No* selecciones "Initialize this repository with a README", ".gitignore", o "license" si ya tienes un proyecto local existente que quieres subir.
-    6.  Clic en "Create repository".
+        **Caso CollabApp:** Ana, desde su cuenta de GitHub:
 
----
+            1.Clic en el icono "+" (esquina superior derecha) ➡️ "New repository".
+            2.**Repository name:** `CollabApp`
+            3. **Description:** (Opcional) "Proyecto de herramienta de gestión de tareas."
+            4.  Elige entre **Public** o **Private**. (Para CollabApp, eligen Privado).
+            5.  **Importante:** *No* selecciones "Initialize this repository with a README", ".gitignore", o "license" si ya tienes un proyecto local existente que quieres subir.
+            6.  Clic en "Create repository".
 
-## 🔗 7. Conectar Repositorio Local con Remoto y Subir Cambios
+    === "Conectar Repositorio Local con Remoto y Subir Cambios"
 
-Ahora, vincularemos el repositorio local de Ana con el que acaba de crear en GitHub.
+        Ahora, vincularemos el repositorio local de Ana con el que acaba de crear en GitHub.
 
-???+ abstract "Pasos para Conectar y Subir"
-    1.  **Añadir el Remoto:**
-        GitHub te proporcionará una URL para tu repositorio remoto (ej. `https://github.com/TuUsuario/CollabApp.git`). Usa esta URL para "registrar" el remoto en tu Git local:
-        ```bash
-        # (Dentro de la carpeta local CollabApp)
-        git remote add origin https://github.com/TuUsuario/CollabApp.git
-        ```
-        *   `origin` es el nombre por defecto y más común para el repositorio remoto principal.
+        ???+ abstract "Pasos para Conectar y Subir"
+            1.  **Añadir el Remoto:**
+                GitHub te proporcionará una URL para tu repositorio remoto (ej. `https://github.com/TuUsuario/CollabApp.git`). Usa esta URL para "registrar" el remoto en tu Git local:
+                ```bash
+                    # (Dentro de la carpeta local CollabApp)
+                    git remote add origin https://github.com/TuUsuario/CollabApp.git
+                ```
+            **`origin`** es el nombre por defecto y más común para el repositorio remoto principal.
 
-    2.  **Verificar Remotos Configurados:**
-        ```bash
-        git remote -v
-        ```
-        Esto mostrará las URLs para `fetch` (traer) y `push` (enviar) de `origin`.
+            2.  **Verificar Remotos Configurados:**
+                ```bash
+                    git remote -v
+                ```
+                Esto mostrará las URLs para `fetch` (traer) y `push` (enviar) de `origin`.
 
-    3.  **(Opcional pero Recomendado) Renombrar Rama Principal a `main`:**
-        Si tu rama principal local se llama `master` (común en versiones antiguas de Git), es buena práctica renombrarla a `main`:
-        ```bash
-        git branch -M main
-        ```
+            3.  **(Opcional pero Recomendado) Renombrar Rama Principal a `main`:**
+                Si tu rama principal local se llama `master` (común en versiones antiguas de Git), es buena práctica renombrarla a `main`:
+                ```bash
+                    git branch -M main
+                ```
 
-    4.  **Empujar (Push) los Commits Locales al Remoto:**
-        La primera vez que empujas a un nuevo repositorio o una nueva rama, necesitas especificar a dónde van los cambios y establecer un seguimiento (upstream):
-        ```bash
-        git push -u origin main
-        ```
-        *   `-u` (o `--set-upstream`) vincula tu rama `main` local con la rama `main` en `origin`.
-        *   En pushes subsecuentes desde esta rama, solo necesitarás `git push`.
+            4.  **Empujar (Push) los Commits Locales al Remoto:**
+                La primera vez que empujas a un nuevo repositorio o una nueva rama, necesitas especificar a dónde van los cambios y establecer un seguimiento (upstream):
+                ```bash
+                    git push -u origin main
+                ```
+                *   `-u` (o `--set-upstream`) vincula tu rama `main` local con la rama `main` en `origin`.
+                *   En pushes subsecuentes desde esta rama, solo necesitarás `git push`.
+  
+    === "Clonar un Repositorio Remoto (`git clone`)"
 
----
+        Para que otros miembros del equipo (Bruno y Carla) puedan trabajar en "CollabApp", necesitan obtener una copia del proyecto.
 
-## 📥 8. Clonar un Repositorio Remoto (`git clone`)
+        *   *Caso CollabApp:* Bruno y Carla ejecutan en sus terminales:
+            ```bash
+               git clone https://github.com/UsuarioDeAna/CollabApp.git
+            ```
+        *   Esto crea una carpeta `CollabApp` en sus máquinas con todo el proyecto.
+        *   Automáticamente configura el remoto `origin` para apuntar al repositorio de GitHub desde donde se clonó.
 
-Para que otros miembros del equipo (Bruno y Carla) puedan trabajar en "CollabApp", necesitan obtener una copia del proyecto.
+    === "Sincronizar Cambios: `push` y `pull`"
 
-*   *Caso CollabApp:* Bruno y Carla ejecutan en sus terminales:
-    ```bash
-    git clone https://github.com/UsuarioDeAna/CollabApp.git
-    ```
-    *   Esto crea una carpeta `CollabApp` en sus máquinas con todo el proyecto.
-    *   Automáticamente configura el remoto `origin` para apuntar al repositorio de GitHub desde donde se clonó.
+        La colaboración implica enviar y recibir cambios:
 
----
+        *   **`git push`:**
+            *   Envía tus commits locales (que están en tu máquina pero no en GitHub) al repositorio remoto.
+            *   *Ejemplo:* Después de hacer nuevos commits, Ana ejecuta `git push` para compartir su progreso.
 
-## 🔄 9. Sincronizar Cambios: `push` y `pull`
+        *   **`git pull`:**
+            *   Trae los cambios del repositorio remoto a tu copia local y trata de fusionarlos con tu trabajo actual.
+            *   Es una combinación de `git fetch` (que descarga los cambios remotos) y `git merge` (que los integra).
+            *   *Ejemplo:* Antes de empezar a trabajar, o para obtener los cambios de Ana, Bruno ejecuta `git pull origin main`.
+            
+    === "Archivos Esenciales: `.gitignore` y `README.md`"
 
-La colaboración implica enviar y recibir cambios:
+        Dos archivos son cruciales para la buena gestión de un repositorio:
 
-*   **`git push`:**
-    *   Envía tus commits locales (que están en tu máquina pero no en GitHub) al repositorio remoto.
-    *   *Ejemplo:* Después de hacer nuevos commits, Ana ejecuta `git push` para compartir su progreso.
+        *   **`.gitignore`:**
+            *   Un archivo de texto plano llamado `.gitignore` (con el punto al inicio).
+            *   Especifica archivos y carpetas que Git debe **ignorar** y no rastrear.
+            *   Esencial para evitar subir archivos generados, dependencias (ej. `node_modules/`), archivos de configuración del IDE, o datos sensibles.
+            *   *Ejemplo de contenido para `.gitignore` en CollabApp:*
+                ```gitignore
+                    # Dependencias
+                    node_modules/
+                    vendor/
 
-*   **`git pull`:**
-    *   Trae los cambios del repositorio remoto a tu copia local y trata de fusionarlos con tu trabajo actual.
-    *   Es una combinación de `git fetch` (que descarga los cambios remotos) y `git merge` (que los integra).
-    *   *Ejemplo:* Antes de empezar a trabajar, o para obtener los cambios de Ana, Bruno ejecuta `git pull origin main`.
+                    # Archivos de entorno (¡Nunca subir secretos!)
+                    .env
+                    *.env.local
 
----
+                    # Logs
+                    *.log
+                    npm-debug.log*
+                    yarn-debug.log*
+                    yarn-error.log*
 
-## 📄 10. Archivos Esenciales: `.gitignore` y `README.md`
+                    # Archivos de build/distribución
+                    dist/
+                    build/
 
-Dos archivos son cruciales para la buena gestión de un repositorio:
+                    # Archivos de sistema operativo
+                    .DS_Store
+                    Thumbs.db
+                ```
+            *   **Importante:** Crea, añade y commitea tu `.gitignore` al repositorio.
+                ```bash
+                    # Crear el archivo .gitignore con el contenido deseado
+                    git add .gitignore
+                    git commit -m "chore: Añadir archivo .gitignore con patrones básicos"
+                    git push
+                ```
 
-*   **`.gitignore`:**
-    *   Un archivo de texto plano llamado `.gitignore` (con el punto al inicio).
-    *   Especifica archivos y carpetas que Git debe **ignorar** y no rastrear.
-    *   Esencial para evitar subir archivos generados, dependencias (ej. `node_modules/`), archivos de configuración del IDE, o datos sensibles.
-    *   *Ejemplo de contenido para `.gitignore` en CollabApp:*
-        ```gitignore
-        # Dependencias
-        node_modules/
-        vendor/
+        *   **`README.md`:**
+            *   Es la "portada" de tu proyecto en GitHub. Escrito en formato [Markdown](https://www.markdownguide.org/basic-syntax/).
+            *   Debe proporcionar una descripción clara del proyecto: qué hace, cómo instalarlo, cómo usarlo, y (eventualmente) cómo contribuir.
+            *   Es lo primero que un visitante (o un nuevo miembro del equipo) verá.
 
-        # Archivos de entorno (¡Nunca subir secretos!)
-        .env
-        *.env.local
 
-        # Logs
-        *.log
-        npm-debug.log*
-        yarn-debug.log*
-        yarn-error.log*
-
-        # Archivos de build/distribución
-        dist/
-        build/
-
-        # Archivos de sistema operativo
-        .DS_Store
-        Thumbs.db
-        ```
-    *   **Importante:** Crea, añade y commitea tu `.gitignore` al repositorio.
-        ```bash
-        # Crear el archivo .gitignore con el contenido deseado
-        git add .gitignore
-        git commit -m "chore: Añadir archivo .gitignore con patrones básicos"
-        git push
-        ```
-
-*   **`README.md`:**
-    *   Es la "portada" de tu proyecto en GitHub. Escrito en formato [Markdown](https://www.markdownguide.org/basic-syntax/).
-    *   Debe proporcionar una descripción clara del proyecto: qué hace, cómo instalarlo, cómo usarlo, y (eventualmente) cómo contribuir.
-    *   Es lo primero que un visitante (o un nuevo miembro del equipo) verá.
-
----
 
 ## 🛠️ Práctica Sugerida
 
@@ -257,7 +248,7 @@ Dos archivos son cruciales para la buena gestión de un repositorio:
 
 ---
 
-!!! success "✅ Puntos Clave del Módulo 1"
+!!! success "✅ Puntos Clave del Fundamentos"
     *   Diferencia entre **Git (local)** y **GitHub (remoto/plataforma)**.
     *   Configuración básica de Git (`user.name`, `user.email`).
     *   Flujo de trabajo local fundamental: `init` ➡️ `add` ➡️ `commit`.

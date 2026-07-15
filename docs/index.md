@@ -1,5 +1,5 @@
 # **Introducción a Git y GitHub**
-    Tu Primer Paso en el Mundo del Control de Versiones
+   >  Tu Primer Paso en el Mundo del Control de Versiones
 
 
 En el mundo del desarrollo de software, la **colaboración**, la **organización** y la **gestión eficiente del código** son aspectos fundamentales para el éxito de cualquier proyecto. Aquí es donde entran en juego herramientas como **Git** y **GitHub**, que han revolucionado la forma en que los desarrolladores trabajan tanto de manera individual como en equipo.
